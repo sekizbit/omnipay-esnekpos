@@ -45,6 +45,21 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
         return 'GET';
     }
 
+    public function getTransactionHashCode(): ?string
+    {
+        return $this->data->HASH ?? null;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->data->RETURN_CODE ?? null;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->data->RETURN_MESSAGE_TR ?? $this->data->RETURN_MESSAGE ?? null;
+    }
+
     public function getRedirectResponse()
     {
         $response = parent::getRedirectResponse();
