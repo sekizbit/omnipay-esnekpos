@@ -5,6 +5,7 @@ namespace Omnipay\Esnekpos;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\AbstractRequest;
 use Omnipay\Esnekpos\Message\BinLookupRequest;
+use Omnipay\Esnekpos\Message\CompletePurchaseRequest;
 use Omnipay\Esnekpos\Message\FetchInstallmentOptionsRequest;
 use Omnipay\Esnekpos\Message\FetchTransactionRequest;
 use Omnipay\Esnekpos\Message\PurchaseRequest;
@@ -43,6 +44,11 @@ class Gateway extends AbstractGateway
     public function purchase(array $options = []): AbstractRequest
     {
         return $this->createRequest(PurchaseRequest::class, $options);
+    }
+
+    public function completePurchase(array $options = []): AbstractRequest
+    {
+        return $this->createRequest(CompletePurchaseRequest::class, $options);
     }
 
     public function fetchTransaction(array $options = []): AbstractRequest
